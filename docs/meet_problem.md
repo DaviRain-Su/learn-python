@@ -1,4 +1,6 @@
-#  error: subprocess-exited-with-error
+# Problem
+
+##  error: subprocess-exited-with-error
 
 ```
  × Getting requirements to build wheel did not run successfully.
@@ -31,3 +33,40 @@ numpy>=1.21.2
 4. 检查 Python 版本和环境：确认你正在使用的 Python 版本是 3.10，并且你的开发环境和虚拟环境也与 Python 3.10 兼容。有时候使用不同的 Python 版本可能导致一些兼容性问题。
 
 如果上述步骤无法解决问题，你可能需要等待 `NumPy` 更新或寻求 `NumPy` 社区的支持。同时，你也可以尝试在开发环境中使用其他较早版本的 Python，或者选择一个与 `NumPy` 兼容的较新版本。
+
+## python 中的isinstance 是做什么的呢？
+
+在 Python 中，`isinstance()` 是一个内置函数，用于检查对象是否是指定类或类型的实例。它的语法如下：
+
+```python
+isinstance(object, classinfo)
+```
+
+`object` 是要检查的对象，`classinfo` 是一个类或类型，可以是单个类或一个由类组成的元组。`isinstance()` 函数返回一个布尔值，如果 `object` 是 `classinfo` 的实例或者是 `classinfo` 中任何类的子类的实例，则返回 `True`，否则返回 `False`。
+
+以下是一些使用 `isinstance()` 的示例：
+
+```python
+# 检查整数是否是 int 类型的实例
+x = 5
+print(isinstance(x, int))  # 输出: True
+
+# 检查字符串是否是 str 类型的实例
+s = "Hello"
+print(isinstance(s, str))  # 输出: True
+
+# 检查列表是否是 list 或 tuple 类型的实例
+lst = [1, 2, 3]
+print(isinstance(lst, (list, tuple)))  # 输出: True
+
+# 检查对象是否是指定类的实例
+class MyClass:
+    pass
+
+obj = MyClass()
+print(isinstance(obj, MyClass))  # 输出: True
+```
+
+`isinstance()` 在编写可复用的代码时非常有用。它可以用于检查对象的类型，并根据需要执行相应的操作。例如，可以根据对象的类型执行不同的逻辑，或者在函数中根据参数类型进行不同的处理。
+
+需要注意的是，`isinstance()` 只检查对象的类型信息，而不会考虑继承关系。如果你想要检查对象是否是某个类的实例或者其子类的实例，可以使用 `issubclass()` 函数。
